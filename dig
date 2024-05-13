@@ -159,7 +159,8 @@ void noventaGraus_direita() {
 }
 
 void desvio() {
-  Serial.println("dlay dsvio - inicio");
+  Serial.println("delay desvio - inicio"); /* saber quando entra no delay, possivelmente tirar depois 👍 */
+
   direita();
   delay(dlvirar_d1);
 
@@ -183,8 +184,8 @@ void desvio() {
 
   frente();
   delay(dlandar4);
-  Serial.println("dlay dsvio - fim");
 
+  Serial.println("delay desvio - fim");
 
   while (!digitalRead(sensorMeio) == 0)
     direita();
