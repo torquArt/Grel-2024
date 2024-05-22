@@ -1,5 +1,8 @@
+
+
+
 //1 = preto, 0 = branco
-//#include <Ultrasonic.h>
+#include <Ultrasonic.h>
 
 #define sensorEsquerda 12
 #define sensorDireita 4
@@ -28,7 +31,7 @@ int leituraDireita = !digitalRead(sensorDireita);
 int leituraEsquerda2 = !digitalRead(sensorEsquerda2);
 int leituraDireita2 = !digitalRead(sensorDireita2);
 
-//Ultrasonic ultra(A3, A2);
+Ultrasonic ultra(A3, A2);
 
 
 void setup() {
