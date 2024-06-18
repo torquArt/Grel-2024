@@ -4,30 +4,30 @@
 #define sensorNoroeste x
 #define sensorNordeste x
 
+int pinosSeguefaixa[5] = {x, x, x, x, x};
+
 #include <servo.h>
 Servo servoEsquerda
 Servo servoDireita
 
-#define velHorario 0
-#define velAntiHorario 180
+/*#define velHorario 0
+#define velAntiHorario 180 os motores vao pra direções diferentes c a mesma vel*/ 
 
 void setup(){
   servoEsquerda.attach(x);
   servoDireita.attach(x);
-  
-  pinMode(sensorFrente, INPUT);
-  pinMode(sensorEsquerda, INPUT);
-  pinMode(sensorDireita, INPUT);
-  pinMode(sensorNoroeste, INPUT);
-  pinMode(sensorNordeste, INPUT);
 
+  for(int i = 0; i<5, i++){
+  pinMode (pinosSeguefaixa[i], INPUT);
+  }
+  
   Serial.begin(9600);
 }
 
 void loop(){
   int leituraFrente = !digitalRead(sensorFrente);
   int leituraEsquerda = !digitalRead(sensorEsquerda);
-  int leituraDireita = !digitalRead(sensorDireita);]
+  int leituraDireita = !digitalRead(sensorDireita);
   int leituraNoroeste = !digitalRead(sensorNordeste);
   int leituraNordeste = !digitalRead(sensorNoroeste);
 
@@ -43,20 +43,20 @@ void loop(){
   Serial.println(leituraNordeste);
 
 
-  if (leituraEsquerda == 1 && leituraDireita == 1 && leituraFrente == 1 && leituraNordest e== 0 && leituraNoroeste == 0){
+ /* if (leituraEsquerda == 1 && leituraDireita == 1 && leituraFrente == 1 && leituraNordest e== 0 && leituraNoroeste == 0){
    Serial.print("frente");
    frente();
   }
   else {
     parar();
-  }
+  }*/
 
 }
 
 
 /*---------------------------------------------------------------------------------------*/
 
-void frente(){
+/*void frente(){
   servoDireita.write(velHorario);
   servoEsquerda.write(velHorario);
 }
@@ -71,4 +71,4 @@ void esquerda(){
 void direita(){
   servoDireita.write(velAntiHorario);
   servoEsquerda.write(velHorario);
-}
+}*/
