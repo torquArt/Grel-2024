@@ -26,21 +26,21 @@ void setup(){
 
 void loop(){
   int leituraFrente = !digitalRead(sensorFrente);
-  int leituraEsquerda = !digitalRead(sensorEsquerda);
-  int leituraDireita = !digitalRead(sensorDireita);
-  int leituraNoroeste = !digitalRead(sensorNordeste);
-  int leituraNordeste = !digitalRead(sensorNoroeste);
+  int leituraEsquerda = !digitalRead(sensorMeioEsquerda);
+  int leituraDireita = !digitalRead(sensorMeioDireita);
+  int leituraNoroeste = !digitalRead(sensorEsquerda);
+  int leituraNordeste = !digitalRead(sensorDireita);
 
-  Serial.print("leituraNoroeste: ");
-  Serial.print(leituraNoroeste);
   Serial.print("leituraEsquerda: ");
   Serial.print(leituraEsquerda);
+  Serial.print("leituraEsquerda: ");
+  Serial.print(leituraMeioEsquerda);
   Serial.print("leituraFrente: ");
   Serial.print(leituraFrente);
   Serial.print("leituraDireita: ");
-  Serial.print( leituraDireita);
-  Serial.println("leituraNordeste: ");
-  Serial.println(leituraNordeste);
+  Serial.print( leituraMeioDireita);
+  Serial.println("leituraDireita: ");
+  Serial.println(leituradireita);
 
 
  /* if (leituraEsquerda == 1 && leituraDireita == 1 && leituraFrente == 1 && leituraNordest e== 0 && leituraNoroeste == 0){
