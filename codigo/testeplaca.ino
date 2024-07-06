@@ -1,22 +1,21 @@
 void setup(){
-pinMode(4, OUTPUT);
-pinMode(5, OUTPUT);
-pinMode(6, OUTPUT);
-pinMode(7, OUTPUT);
-pinMode(8, OUTPUT);
+pinMode(A1, INPUT);
+pinMode(A2, INPUT);
+pinMode(A3, INPUT);
+pinMode(A4,INPUT);
+pinMode(A5, INPUT);
 
 Serial.begin(9600);
 }
 
 void loop(){
-Serial.print("4: ");
-Serial.print(analogRead(4));
-Serial.print(" /// 5: ");
-Serial.print(analogRead(5));
-Serial.print(" /// 6: ");
-Serial.print(analogRead(6));
-Serial.print(" /// 7: ");
-Serial.print(analogRead(7));
-Serial.print(" /// 8: ");
-Serial.println(analogRead(8));
+Serial.print(analogRead(A1));
+Serial.print(" /// ");
+Serial.print(analogRead(A2));
+Serial.print(" /// ");
+Serial.print(analogRead(A3));
+Serial.print(" /// ");
+Serial.print(analogRead(A4));
+Serial.print(" /// ");
+Serial.println(analogRead(A5));
 }
