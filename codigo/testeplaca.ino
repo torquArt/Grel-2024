@@ -1,9 +1,17 @@
+#include <Servo.h>
+
+Servo servoEsquerda;
+Servo servoDireita;
+
 void setup(){
 pinMode(A1, INPUT);
 pinMode(A2, INPUT);
 pinMode(A3, INPUT);
 pinMode(A4,INPUT);
 pinMode(A5, INPUT);
+
+servoEsquerda.attach(3);
+servoDireita.attach(6);
 
 Serial.begin(9600);
 }
