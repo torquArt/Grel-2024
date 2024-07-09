@@ -1,3 +1,9 @@
+/* cabo roxo longo, esquerdo
+cinza longo, meio esquerda
+roxo curto, meio direita
+cinza curto, direita
+amarelo, frente-*/
+
 #include <Servo.h>
 
 Servo servoEsquerda;
