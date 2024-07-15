@@ -15,13 +15,12 @@ Servo servoDireita;
 #define sensorMesq A2 // MAX: 370 MIN: 102
 #define senosr Mdir A5 // MAX: 360 MIN: 120
 
+int pinosSensores[5] = {A1, A2, A3, A4, A5};
+int valoresSegueFaixa[5] = {};
 
 void setup(){
-pinMode(A1, INPUT);
-pinMode(A2, INPUT);
-pinMode(A3, INPUT);
-pinMode(A4,INPUT);
-pinMode(A5, INPUT);
+for(int i = 0; i<5, i++){
+pinMode (pinosSeguefaixa[i], INPUT);
 
 servoEsquerda.attach(3);
 servoDireita.attach(6);
