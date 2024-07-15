@@ -11,7 +11,7 @@ Servo servoDireita;
 
 #define sensorF A1 // MAX: 506 MIN: 202
 #define sensorEsq A3 // MAX: 632 MIN: 433
-#define sensorDir A4 // MAX: 486 MIN: 160
+#define sensorDir A4 // MAX: 486 MIN: 120
 #define sensorMesq A2 // MAX: 370 MIN: 102
 #define senosr Mdir A5 // MAX: 360 MIN: 120
 
