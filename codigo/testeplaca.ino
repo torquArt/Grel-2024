@@ -38,19 +38,19 @@ if (analogRead(sensorF) >= 300 ){
   valorF = 0;
 } else {valorF = 1;}
 
-if (analogRead(sensorEsq) >= 300 ){
+if (analogRead(sensorEsq) >= 400 ){
   valorF = 0;
 } else {valorEsq = 1;}
   
-if (analogRead(sensorDir) >= 300 ){
+if (analogRead(sensorDir) >= 150 ){
   valorF = 0;
 } else {valorDir = 1;}
   
-if (analogRead(sensorMesq) >= 300 ){
+if (analogRead(sensorMesq) >= 120 ){
   valorF = 0;
 } else {valorMesq = 1;}
   
-if (analogRead(sensorMdir) >= 300 ){
+if (analogRead(sensorMdir) >= 150 ){
   valorF = 0;
 } else {valorMdir = 1;}
 
