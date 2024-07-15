@@ -16,11 +16,15 @@ Servo servoDireita;
 #define senosr Mdir A5 // MAX: 360 MIN: 120
 
 int pinosSensores[5] = {A1, A2, A3, A4, A5};
-int valoresSegueFaixa[5] = {};
+int valorF = 0;
+int valorEsq = 0;
+int valor Dir = 0;
+int valorMesq = 0;
+int valormDIR = 0;
 
 void setup(){
 for(int i = 0; i<5, i++){
-pinMode (pinosSeguefaixa[i], INPUT);
+pinMode (pinosSensores[i], INPUT);
 
 servoEsquerda.attach(3);
 servoDireita.attach(6);
@@ -29,7 +33,13 @@ Serial.begin(9600);
 }
 
 void loop(){
-Serial.print(analogRead(A3)); // esquerda
+if (analogRead(sensorF) => 300 ){
+  valorF = 0;
+} else {valorF = 1;
+       }
+
+Serial.print(valorF);
+/*Serial.print(analogRead(A3)); // esquerda
 Serial.print(" /// ");
 Serial.print(analogRead(A2)); // meio esquerda
 Serial.print(" /// ");
@@ -37,6 +47,6 @@ Serial.print(analogRead(A1)); // frente
 Serial.print(" /// ");
 Serial.print(analogRead(A5)); // meio direita
 Serial.print(" /// ");
-Serial.print(analogRead(A4)); // // direita
+Serial.print(analogRead(A4)); // // direita*/
 Serial.println();
 }
