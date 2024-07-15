@@ -18,25 +18,41 @@ Servo servoDireita;
 int pinosSensores[5] = {A1, A2, A3, A4, A5};
 int valorF = 0;
 int valorEsq = 0;
-int valor Dir = 0;
+int valorDir = 0;
 int valorMesq = 0;
-int valormDIR = 0;
+int valorMdir = 0;
 
 void setup(){
-for(int i = 0; i<5, i++){
+for(int i = 0; i<5; i++){
 pinMode (pinosSensores[i], INPUT);
-
+}
 servoEsquerda.attach(3);
 servoDireita.attach(6);
 
 Serial.begin(9600);
 }
 
+
 void loop(){
-if (analogRead(sensorF) => 300 ){
+if (analogRead(sensorF) >= 300 ){
   valorF = 0;
-} else {valorF = 1;
-       }
+} else {valorF = 1;}
+
+if (analogRead(sensorEsq) >= 300 ){
+  valorF = 0;
+} else {valorEsq = 1;}
+  
+if (analogRead(sensorDir) >= 300 ){
+  valorF = 0;
+} else {valorDir = 1;}
+  
+if (analogRead(sensorMesq) >= 300 ){
+  valorF = 0;
+} else {valorMesq = 1;}
+  
+if (analogRead(sensorMdir) >= 300 ){
+  valorF = 0;
+} else {valorMdir = 1;}
 
 Serial.print(valorF);
 /*Serial.print(analogRead(A3)); // esquerda
