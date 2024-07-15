@@ -1,4 +1,4 @@
-/* cabo roxo longo, esquerdo
+/* (invertido) cabo roxo longo, esquerdo
 cinza longo, meio esquerda
 roxo curto, meio direita
 cinza curto, direita
@@ -8,6 +8,13 @@ amarelo, frente-*/
 
 Servo servoEsquerda;
 Servo servoDireita;
+
+#define sensorF A1 // MAX: 506 MIN: 202
+#define sensorEsq A3 // MAX: 632 MIN: 433
+#define sensorDir A4 // MAX: 486 MIN: 160
+#define sensorMesq A2 // MAX: 370 MIN: 102
+#define senosr Mdir A5 // MAX: 360 MIN: 120
+
 
 void setup(){
 pinMode(A1, INPUT);
@@ -23,13 +30,14 @@ Serial.begin(9600);
 }
 
 void loop(){
-/*Serial.print(analogRead(A1));
-Serial.print(" /// ");*/
-Serial.print(digitalRead(A5));
+Serial.print(analogRead(A3)); // esquerda
 Serial.print(" /// ");
-Serial.print(digitalRead(A2));
+Serial.print(analogRead(A2)); // meio esquerda
 Serial.print(" /// ");
-Serial.print(digitalRead(A4));
+Serial.print(analogRead(A1)); // frente 
 Serial.print(" /// ");
-Serial.println(digitalRead(A3));
+Serial.print(analogRead(A5)); // meio direita
+Serial.print(" /// ");
+Serial.print(analogRead(A4)); // // direita
+Serial.println();
 }
