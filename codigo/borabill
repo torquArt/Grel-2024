@@ -21,14 +21,14 @@ Servo servoDireita;
 #define sensorMesq A5 
 #define sensorMdir A2 
 
-//Ordem: Frente, esquerda, direita, meioesquerda e meiodireita.
-int sensoresMax[5] = {530, 625, 480, 365, 320}; // valores de cada sensor no branco
+//Ordem:  esquerda, meioesquerda, frente, meiodireita, direita
+int sensoresMax[5] = {625, 365, 530, 320, 480}; // valores de cada sensor no branco
 
-int sensoresMin[5] = {218, 448, 130, 116, 74}; //valores de cada sensor no preto
+int sensoresMin[5] = {448, 116, 218, 74, 130}; //valores de cada sensor no preto
 
 int mediaSensores[5] = {0, 0, 0, 0, 0};
 
-int pinosSensores[5] = {A1, A3, A4, A5, A2};
+int pinosSensores[5] = {A3, A5, A1, A2, A4;
 
 int valorF = 0;
 int valorEsq = 0;
@@ -52,15 +52,15 @@ void setup(){
 void loop(){
   media(0); media(1); media(2); media(3); media(4);
 
-  if (analogRead(pinosSensores[0]) > mediaSensores[0] ){valorF = 0;} else{valorF = 1;}
+  if (analogRead(pinosSensores[0]) > mediaSensores[0] ){valorEsq = 0;} else{valorEsq = 1;}
 
-  if (analogRead(pinosSensores[1]) > mediaSensores[1] ){valorEsq = 0;} else {valorEsq = 1;}
+  if (analogRead(pinosSensores[1]) > mediaSensores[1] ){valorMesq = 0;} else {valorMesq = 1;}
     
-  if (analogRead(pinosSensores[2]) > mediaSensores[2] ){valorDir = 0;} else {valorDir = 1;}
+  if (analogRead(pinosSensores[2]) > mediaSensores[2] ){valorF = 0;} else {valorF = 1;}
     
-  if (analogRead(pinosSensores[3]) > mediaSensores[3] ){valorMesq = 0;} else {valorMesq = 1;}
+  if (analogRead(pinosSensores[3]) > mediaSensores[3] ){valorMdir = 0;} else {valorMdir = 1;}
     
-  if (analogRead(pinosSensores[4]) > mediaSensores[4] ){valorMdir = 0;} else {valorMdir = 1;}
+  if (analogRead(pinosSensores[4]) > mediaSensores[4] ){valorDir = 0;} else {valorDir = 1;}
 
   Serial.print(valorEsq); Serial.print(" // ");
   Serial.print(valorMesq); Serial.print(" // ");
