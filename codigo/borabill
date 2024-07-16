@@ -28,7 +28,7 @@ int sensoresMin[5] = {448, 116, 218, 74, 130}; //valores de cada sensor no preto
 
 int mediaSensores[5] = {0, 0, 0, 0, 0};
 
-int pinosSensores[5] = {A3, A5, A1, A2, A4;
+int pinosSensores[5] = {A3, A5, A1, A2, A4};
 
 int valorF = 0;
 int valorEsq = 0;
