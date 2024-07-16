@@ -12,8 +12,8 @@ Servo servoDireita;
 #define sensorF A1 // MAX: 506 MIN: 202
 #define sensorEsq A3 // MAX: 632 MIN: 433
 #define sensorDir A4 // MAX: 486 MIN: 120
-#define sensorMesq A2 // MAX: 370 MIN: 102
-#define sensorMdir A5 // MAX: 360 MIN: 120
+#define sensorMesq A5 // MAX: 370 MIN: 102
+#define sensorMdir A2 // MAX: 360 MIN: 120
 
 int pinosSensores[5] = {A1, A2, A3, A4, A5};
 int valorF = 0;
@@ -34,38 +34,35 @@ Serial.begin(9600);
 
 
 void loop(){
-if (analogRead(sensorF) > 300 ){
-  valorF = 0;
-} else{valorF = 1;}
-
-if (analogRead(sensorEsq) >= 400 ){
-  valorEsq = 0;
-} else {valorEsq = 1;}
-  
-if (analogRead(sensorDir) >= 150 ){
-  valorDir = 0;
-} else {valorDir = 1;}
-  
-if (analogRead(sensorMesq) >= 120 ){
-  valorMesq = 0;
-} else {valorMesq = 1;}
-  
-if (analogRead(sensorMdir) >= 150 ){
-  valorMdir = 0;
-} else {valorMdir = 1;}
-
-Serial.print(analogRead(sensorF));
+//if (analogRead(sensorF) > 300 ){
+//  valorF = 0;
+//} else if (analogRead(sensorF) < 300){valorF = 1;}
+//
+//if (analogRead(sensorEsq) >= 450){
+//  valorEsq = 0;
+//} else {valorEsq = 1;}
+//  
+//if (analogRead(sensorDir) >= 150 ){
+//  valorDir = 0;
+//} else {valorDir = 1;}
+//  
+//if (analogRead(sensorMesq) >= 120 ){
+//  valorMesq = 0;
+//} else {valorMesq = 1;}
+//  
+//if (analogRead(sensorMdir) >= 150 ){
+//  valorMdir = 0;
+//} else {valorMdir = 1;}
+//
+Serial.print(analogRead(sensorEsq));
 Serial.print(" // ");
-Serial.print(valorEsq);
-//Serial.print(" // ");
-//Serial.print(valorMesq);
-//Serial.print(" // ");
-//Serial.print(valorF);
-//Serial.print(" // ");
-//Serial.print(valorMdir);
-//Serial.print(" // );
-//Serial.print(valorDir);
-//Serial.print(" // ");
+Serial.print(analogRead(sensorMesq));
+Serial.print(" // ");
+Serial.print(analogRead(sensorF));
+Serial.print(" //");
+Serial.print(analogRead(sensorMdir));
+Serial.print(" // ");
+Serial.print(analogRead(sensorDir));
 
 Serial.println();
 }
