@@ -73,8 +73,35 @@ void loop(){
   Serial.println();
 
   if(valorEsq == 0 && valorMesq == 1 && valorF == 1 && valorMdir == 1 && valorDir == 0 ){
-    Serial.println("Frente");
+    Serial.println("FRENTE");
   }
+
+  else if((valorEsq == 1 && valorMesq == 1 && valorF == 0 && valorMdir == 0 && valorDir == 0) || 
+    (valorEsq == 1 && valorMesq == 0 && valorF == 0 && valorMdir == 0 && valorDir == 0)){
+    Serial.println("ESQUERDA");
+  }
+
+  else if((valorEsq == 0 && valorMesq == 0 && valorF == 0 && valorMdir == 1 && valorDir == 1) || 
+    (valorEsq == 0 && valorMesq == 0 && valorF == 0 && valorMdir == 0 && valorDir == 1)){
+      Serial.println("DIREITA");
+    }
+
+  else if(valorEsq == 0 && valorMesq == 1 && valorF == 0 && valorMdir == 1 && valorDir == 1){
+      Serial.println("NOV GRAUS DIREITA");
+    }
+  
+  else if(valorEsq == 1 && valorMesq == 1 && valorF == 0 && valorMdir == 1 && valorDir == 0){
+      Serial.println("NOV GRAUS ESQUERDA");
+    }
+
+  else if(valorEsq == 1 && valorMesq == 1 && valorF == 0 && valorMdir == 1 && valorDir == 1){
+      Serial.println("T");
+    }
+
+  else if(valorEsq == 1 && valorMesq == 1 && valorF == 1 && valorMdir == 1 && valorDir == 1){
+      Serial.println("ENCRUZILHADA");
+    }
+
   else{Serial.println("Sem condiçao");
   }
 }
@@ -89,3 +116,10 @@ void frente(){
   servoEsquerda.write(velEsq);
   servoDireita.write(velDir);
 }
+
+void esquerda(){}
+void direita(){}
+void novg_esquerda(){}
+void novg_direita(){}
+void t(){}
+void encruzilhada(){}
