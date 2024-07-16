@@ -15,20 +15,20 @@ Servo servoDireita;
 
 ///////////////////////
 
-#define sensorF A1 // MAX: 506 MIN: 202
-#define sensorEsq A3 // MAX: 632 MIN: 433
-#define sensorDir A4 // MAX: 486 MIN: 120
-#define sensorMesq A2 // MAX: 370 MIN: 102
-#define sensorMdir A5 // MAX: 360 MIN: 120
+#define sensorF A1 
+#define sensorEsq A3 
+#define sensorDir A4 
+#define sensorMesq A5 
+#define sensorMdir A2 
 
 //Ordem: Frente, esquerda, direita, meioesquerda e meiodireita.
-int sensoresMax[5] = {380, 520, 225, 185, 300}; // valores de cada sensor no branco
+int sensoresMax[5] = {530, 625, 480, 365, 320}; // valores de cada sensor no branco
 
-int sensoresMin[5] = {194, 448, 130, 15, 150}; //valores de cada sensor no preto
+int sensoresMin[5] = {218, 448, 130, 116, 74}; //valores de cada sensor no preto
 
 int mediaSensores[5] = {0, 0, 0, 0, 0};
 
-int pinosSensores[5] = {A1, A3, A4, A2, A5};
+int pinosSensores[5] = {A1, A3, A4, A5, A2};
 
 int valorF = 0;
 int valorEsq = 0;
