@@ -9,6 +9,12 @@ amarelo, frente-*/
 Servo servoEsquerda;
 Servo servoDireita;
 
+#define velEsq 180
+#define velDir 0
+#define velParar 90
+
+///////////////////////
+
 #define sensorF A1 // MAX: 506 MIN: 202
 #define sensorEsq A3 // MAX: 632 MIN: 433
 #define sensorDir A4 // MAX: 486 MIN: 120
@@ -24,62 +30,62 @@ int mediaSensores[5] = {0, 0, 0, 0, 0};
 
 int pinosSensores[5] = {A1, A3, A4, A2, A5};
 
-
 int valorF = 0;
 int valorEsq = 0;
 int valorDir = 0;
 int valorMesq = 0;
 int valorMdir = 0;
 
-
-
 void setup(){
 //definindo os tcrt como saídas.
-for(int i = 0; i<5; i++){
-pinMode (pinosSensores[i], INPUT);
-}
+  for(int i = 0; i<5; i++){
+    pinMode (pinosSensores[i], INPUT);
+  }
 
-servoEsquerda.attach(3);
-servoDireita.attach(6);
+  servoEsquerda.attach(3);
+  servoDireita.attach(6);
 
-Serial.begin(9600);
+  Serial.begin(9600);
 }
 
 
 void loop(){
 
-media(0);
-media(1);
-media(2);
-media(3);
-media(4);
+  media(0); media(1); media(2); media(3); media(4);
 
-if (analogRead(pinosSensores[0]) > mediaSensores[0] ){valorF = 0;} else{valorF = 1;}
+  if (analogRead(pinosSensores[0]) > mediaSensores[0] ){valorF = 0;} else{valorF = 1;}
 
-if (analogRead(pinosSensores[1]) > mediaSensores[1] ){valorEsq = 0;} else {valorEsq = 1;}
-  
-if (analogRead(pinosSensores[2]) > mediaSensores[2] ){valorDir = 0;} else {valorDir = 1;}
-  
-if (analogRead(pinosSensores[3]) > mediaSensores[3] ){valorMesq = 0;} else {valorMesq = 1;}
-  
-if (analogRead(pinosSensores[4]) > mediaSensores[4] ){valorMdir = 0;} else {valorMdir = 1;}
+  if (analogRead(pinosSensores[1]) > mediaSensores[1] ){valorEsq = 0;} else {valorEsq = 1;}
+    
+  if (analogRead(pinosSensores[2]) > mediaSensores[2] ){valorDir = 0;} else {valorDir = 1;}
+    
+  if (analogRead(pinosSensores[3]) > mediaSensores[3] ){valorMesq = 0;} else {valorMesq = 1;}
+    
+  if (analogRead(pinosSensores[4]) > mediaSensores[4] ){valorMdir = 0;} else {valorMdir = 1;}
 
-// Serial.print(analogRead(sensorF));
-// Serial.print(" // ");
-// Serial.print(valorEsq);
-//Serial.print(" // ");
-//Serial.print(valorMesq);
-//Serial.print(" // ");
-//Serial.print(valorF);
-//Serial.print(" // ");
-//Serial.print(valorMdir);
-//Serial.print(" // );
-//Serial.print(valorDir);
-//Serial.print(" // ");
+  Serial.print(analogRead(sensorF)); Serial.print(" // ");
+  Serial.print(valorEsq); Serial.print(" // ");
+  Serial.print(valorMesq); Serial.print(" // ");
+  Serial.print(valorF); Serial.print(" // ");
+  Serial.print(valorMdir); Serial.print(" // ");
+  Serial.print(valorDir); Serial.print(" // ");
 
-Serial.println();
+  Serial.println();
+
+  if(valorEsq == 0 && valorMesq == 1 && valorF == 1 && valorMdir == 1 && valorDir == 0 ){
+    Serial.println("Frente");
+  }
+  else{Serial.println("Sem condiçao");
+  }
 }
 
 void media(int x){
-mediaSensores[x] = (sensoresMax[x] + sensoresMin[x])/2;
+  mediaSensores[x] = (sensoresMax[x] + sensoresMin[x])/2;
+}
+
+////////////////////
+
+void frente(){
+  servoEsquerda.write(velEsq);
+  servoDireita.write(velDir);
 }
