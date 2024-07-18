@@ -30,6 +30,7 @@ int mediaSensores[5] = {0, 0, 0, 0, 0};
 
 int pinosSensores[5] = {A3, A5, A1, A2, A4};
 
+int leituraSensores[] = {0, 0, 0, 0, 0};
 int valorF = 0;
 int valorEsq = 0;
 int valorDir = 0;
@@ -52,62 +53,34 @@ void setup(){
 void loop(){
   media(0); media(1); media(2); media(3); media(4);
 
-  if (analogRead(pinosSensores[0]) > mediaSensores[0] ){valorEsq = 0;} else{valorEsq = 1;}
+  if (analogRead(pinosSensores[0]) > mediaSensores[0] ){valorSensores[0] = 0;} else{valorSensores[0] = 1;}
 
-  if (analogRead(pinosSensores[1]) > mediaSensores[1] ){valorMesq = 0;} else {valorMesq = 1;}
+  if (analogRead(pinosSensores[1]) > mediaSensores[1] ){valorSensores[1] = 0;} else {valorSensores[1] = 1;}
     
-  if (analogRead(pinosSensores[2]) > mediaSensores[2] ){valorF = 0;} else {valorF = 1;}
+  if (analogRead(pinosSensores[2]) > mediaSensores[2] ){valorSensores[2] = 0;} else {valorSensores[2] = 1;}
     
-  if (analogRead(pinosSensores[3]) > mediaSensores[3] ){valorMdir = 0;} else {valorMdir = 1;}
+  if (analogRead(pinosSensores[3]) > mediaSensores[3] ){valorSensores[3] = 0;} else {valorSensores[3] = 1;}
     
-  if (analogRead(pinosSensores[4]) > mediaSensores[4] ){valorDir = 0;} else {valorDir = 1;}
+  if (analogRead(pinosSensores[4]) > mediaSensores[4] ){valorSensores[4] = 0;} else {valorSensores[4] = 1;}
 
-  Serial.print(valorEsq); Serial.print(" // ");
-  Serial.print(valorMesq); Serial.print(" // ");
-  Serial.print(valorF); Serial.print(" // ");
-  Serial.print(valorMdir); Serial.print(" // ");
-  Serial.print(valorDir); Serial.print(" // ");
+   // Variável para armazenar os valores dos pinos
+  byte leitura = 0;
 
-  Serial.println();
+  // Realiza a leitura dos pinos digitais
+  for(int i= 0, i<5, i++){
+    leitura |= valorSensores[i] << i;}
 
-  if(valorEsq == 0 && valorMesq == 1 && valorF == 1 && valorMdir == 1 && valorDir == 0 ){
-    Serial.println("FRENTE");
-      frente();
+  // Exibe o valor lido em binário
+  Serial.print("Valor lido: ");
+  Serial.println(leitura, BIN);
+
+  switch (leitura) {
+    case 0b00001:
+      break;
+    default:
+      break;
   }
 
-  else if((valorEsq == 1 && valorMesq == 1 && valorF == 0 && valorMdir == 0 && valorDir == 0) || 
-    (valorEsq == 0 && valorMesq == 1 && valorF == 0 && valorMdir == 0 && valorDir == 0) || 
-    (valorEsq == 0 && valorMesq == 1 && valorF == 1 && valorMdir == 0 && valorDir == 0)){
-    Serial.println("ESQUERDA");
-    esquerda();
-  }
-
-  else if((valorEsq == 0 && valorMesq == 0 && valorF == 0 && valorMdir == 1 && valorDir == 1) || 
-    (valorEsq == 0 && valorMesq == 0 && valorF == 0 && valorMdir == 1 && valorDir == 0)
-    ||(valorEsq == 0 && valorMesq == 0 && valorF == 1 && valorMdir == 1 && valorDir == 0)){
-      Serial.println("DIREITA");
-      direita();
-    }
-
-  else if(valorEsq == 0 && valorMesq == 1 && valorF == 0 && valorMdir == 1 && valorDir == 1){
-      Serial.println("NOV GRAUS DIREITA");
-    }
-  
-  else if(valorEsq == 1 && valorMesq == 1 && valorF == 0 && valorMdir == 1 && valorDir == 0){
-      Serial.println("NOV GRAUS ESQUERDA");
-    }
-
-  else if(valorEsq == 1 && valorMesq == 1 && valorF == 0 && valorMdir == 1 && valorDir == 1){
-      Serial.println("T");
-    }
-
-  else if(valorEsq == 1 && valorMesq == 1 && valorF == 1 && valorMdir == 1 && valorDir == 1){
-      Serial.println("ENCRUZILHADA");
-    }
-
-  else{Serial.println("Sem condiçao");
-  frente();
-  }
 }
 
 void media(int x){
