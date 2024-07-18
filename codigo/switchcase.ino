@@ -1,3 +1,4 @@
+
 /* cabo roxo longo, direita
 cinza longo, meio direita
 roxo curto, meio esquerda
@@ -30,12 +31,7 @@ int mediaSensores[5] = {0, 0, 0, 0, 0};
 
 int pinosSensores[5] = {A3, A5, A1, A2, A4};
 
-int leituraSensores[] = {0, 0, 0, 0, 0};
-int valorF = 0;
-int valorEsq = 0;
-int valorDir = 0;
-int valorMesq = 0;
-int valorMdir = 0;
+int valorSensores[] = {0, 0, 0, 0, 0};
 
 void setup(){
 //definindo os tcrt como saídas.
@@ -67,7 +63,7 @@ void loop(){
   byte leitura = 0;
 
   // Realiza a leitura dos pinos digitais
-  for(int i= 0, i<5, i++){
+  for(int i= 0; i<5; i++){
     leitura |= valorSensores[i] << i;}
 
   // Exibe o valor lido em binário
