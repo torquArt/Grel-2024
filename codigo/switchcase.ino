@@ -71,7 +71,8 @@ void loop(){
   Serial.println(leitura, BIN);
 
   switch (leitura) {
-    case 0b00001:
+    case 0b01110:
+      Serial.print("FRENTE");
       break;
     default:
       break;
