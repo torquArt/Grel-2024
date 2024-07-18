@@ -1,7 +1,7 @@
-/* (invertido tem que ajeitar) cabo roxo longo, esquerdo
-cinza longo, meio esquerda
-roxo curto, meio direita
-cinza curto, direita
+/* cabo roxo longo, direita
+cinza longo, meio direita
+roxo curto, meio esquerda
+cinza curto, esquerda
 amarelo, frente-*/
 
 #include <Servo.h>
