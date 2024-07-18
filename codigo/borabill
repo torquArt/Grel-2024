@@ -75,16 +75,12 @@ void loop(){
       frente();
   }
 
-  else if((valorEsq == 1 && valorMesq == 1 && valorF == 0 && valorMdir == 0 && valorDir == 0) || 
-    (valorEsq == 0 && valorMesq == 1 && valorF == 0 && valorMdir == 0 && valorDir == 0) || 
-    (valorEsq == 0 && valorMesq == 1 && valorF == 1 && valorMdir == 0 && valorDir == 0)){
+  else if(valorMesq == 1  && valorMdir == 0){
     Serial.println("ESQUERDA");
     esquerda();
   }
 
-  else if((valorEsq == 0 && valorMesq == 0 && valorF == 0 && valorMdir == 1 && valorDir == 1) || 
-    (valorEsq == 0 && valorMesq == 0 && valorF == 0 && valorMdir == 1 && valorDir == 0)
-    ||(valorEsq == 0 && valorMesq == 0 && valorF == 1 && valorMdir == 1 && valorDir == 0)){
+  else if(valorMesq == 0 && valorMdir == 1){
       Serial.println("DIREITA");
       direita();
     }
