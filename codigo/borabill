@@ -90,12 +90,14 @@ void loop(){
           (valorEsq == 0 && valorMesq == 0 && valorF == 0 && valorMdir == 1 && valorDir == 1)||
           (valorEsq == 0 && valorMesq == 1 && valorF == 0 && valorMdir == 0 && valorDir == 1)){
       Serial.println("NOV GRAUS DIREITA");
+      direita();
     }
   
   else if((valorEsq == 1 && valorMesq == 1 && valorF == 0 && valorMdir == 1 && valorDir == 0) || 
          (valorEsq == 1 && valorMesq == 1 && valorF == 0 && valorMdir == 0 && valorDir == 0) ||
          (valorEsq == 1 && valorMesq == 0 && valorF == 0 && valorMdir == 1 && valorDir == 0)){
       Serial.println("NOV GRAUS ESQUERDA");
+      esquerda();
     }
 
   else if(valorEsq == 1 && valorMesq == 1 && valorF == 0 && valorMdir == 1 && valorDir == 1){
