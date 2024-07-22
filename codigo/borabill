@@ -76,12 +76,12 @@ void loop(){
   }
 
 
-  else if((valorEsq == 0 && valorMesq == 1 && valorF == 1 && valorMdir == 0 && valorDir == 0) 
+  else if((valorEsq == 0 && valorMesq == 1 && valorF == 1 && valorMdir == 0 && valorDir == 0) {
     Serial.println("ESQUERDA");
     esquerda();
   }
 
-    else if((valorEsq == 0 && valorMesq == 0 && valorF == 1 && valorMdir == 1 && valorDir == 0) 
+    else if((valorEsq == 0 && valorMesq == 0 && valorF == 1 && valorMdir == 1 && valorDir == 0) {
       Serial.println("DIREITA");
       direita();
     }
