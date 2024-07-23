@@ -87,6 +87,7 @@ void loop(){
         Serial.println("DIR");
       direita();
       break;
+      Serial.print("ESQ");
     default:
       frente();
       break;
