@@ -70,13 +70,12 @@ void loop(){
 
   Serial.println();
 
-  if(valorEsq == 0 && valorMesq == 1 && valorF == 1 && valorMdir == 1 && valorDir == 0 ){
-    Serial.println("FRENTE");
-      frente();
-  }
+  // if(valorEsq == 0 && valorMesq == 1 && valorF == 1 && valorMdir == 1 && valorDir == 0 ){
+  //   Serial.println("FRENTE");
+  //     frente();
+  // }
 
-
-  else if(valorEsq == 0 && valorMesq == 1 && valorF == 1 && valorMdir == 0 && valorDir == 0) {
+  if(valorEsq == 0 && valorMesq == 1 && valorF == 1 && valorMdir == 0 && valorDir == 0) {
     Serial.println("ESQUERDA");
     esquerda();
   }
@@ -90,25 +89,25 @@ void loop(){
           (valorEsq == 0 && valorMesq == 0 && valorF == 0 && valorMdir == 1 && valorDir == 1)||
           (valorEsq == 0 && valorMesq == 1 && valorF == 0 && valorMdir == 0 && valorDir == 1)){
       Serial.println("NOV GRAUS DIREITA");
-      direita();
+      novg_direita();
     }
   
   else if((valorEsq == 1 && valorMesq == 1 && valorF == 0 && valorMdir == 1 && valorDir == 0) || 
          (valorEsq == 1 && valorMesq == 1 && valorF == 0 && valorMdir == 0 && valorDir == 0) ||
          (valorEsq == 1 && valorMesq == 0 && valorF == 0 && valorMdir == 1 && valorDir == 0)){
       Serial.println("NOV GRAUS ESQUERDA");
-      esquerda();
+      novg_esquerda();
     }
 
-  else if(valorEsq == 1 && valorMesq == 1 && valorF == 0 && valorMdir == 1 && valorDir == 1){
-      Serial.println("T");
-    }
+  // else if(valorEsq == 1 && valorMesq == 1 && valorF == 0 && valorMdir == 1 && valorDir == 1){
+  //     Serial.println("T");
+  //   }
 
-  else if(valorEsq == 1 && valorMesq == 1 && valorF == 1 && valorMdir == 1 && valorDir == 1){
-      Serial.println("ENCRUZILHADA");
-    }
+  // else if(valorEsq == 1 && valorMesq == 1 && valorF == 1 && valorMdir == 1 && valorDir == 1){
+  //     Serial.println("ENCRUZILHADA");
+  //   }
 
-  else{Serial.println("Sem condiçao");
+  else{Serial.println("FRENTE");
   frente();
   }
 }
@@ -133,7 +132,24 @@ void direita(){
   servoEsquerda.write(velEsq);
   servoDireita.write(velEsq);
 }
-void novg_esquerda(){}
-void novg_direita(){}
+
+void novg_esquerda(){
+while(valorEsq == 1){
+frente();
+}
+while(valorF == 0){
+esquerda();
+}
+}
+
+void novg_direita(){
+while(valorDir == 1){
+frente();
+}
+while(valorF == 0){
+direita();
+}
+}
+
 void t(){}
 void encruzilhada(){}
