@@ -99,14 +99,6 @@ void loop(){
       novg_esquerda();
     }
 
-  // else if(valorEsq == 1 && valorMesq == 1 && valorF == 0 && valorMdir == 1 && valorDir == 1){
-  //     Serial.println("T");
-  //   }
-
-  // else if(valorEsq == 1 && valorMesq == 1 && valorF == 1 && valorMdir == 1 && valorDir == 1){
-  //     Serial.println("ENCRUZILHADA");
-  //   }
-
   else{Serial.println("FRENTE");
   frente();
   }
