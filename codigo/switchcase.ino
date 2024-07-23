@@ -10,8 +10,8 @@ amarelo, frente-*/
 Servo servoEsquerda;
 Servo servoDireita;
 
-#define velEsq 97
-#define velDir 83
+#define velEsq 100
+#define velDir 80
 #define velParar 90
 
 ///////////////////////
@@ -73,17 +73,22 @@ void loop(){
   switch (leitura) {
     case 0b01110:
       Serial.println("FRENTE");
+      frente();
       break;
     case 0b01000:
     case 0b01100:
+    case 0b10000:
       Serial.println("ESQ");
+      esquerda();
       break;
     case 0b00010:
     case 0b00110:
+    case 0b00001:
         Serial.println("DIR");
+      direita();
       break;
-      Serial.print("ESQ");
     default:
+      frente();
       break;
   }
 
