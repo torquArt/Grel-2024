@@ -72,8 +72,17 @@ void loop(){
 
   switch (leitura) {
     case 0b01110:
-      Serial.print("FRENTE");
+      Serial.println("FRENTE");
       break;
+    case 0b01000:
+    case 0b01100:
+      Serial.println("ESQ");
+      break;
+    case 0b00010:
+    case 0b00110:
+        Serial.println("DIR");
+      break;
+      Serial.print("ESQ");
     default:
       break;
   }
