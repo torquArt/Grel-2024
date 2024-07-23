@@ -9,8 +9,8 @@ amarelo, frente-*/
 Servo servoEsquerda;
 Servo servoDireita;
 
-#define velEsq 97
-#define velDir 83
+#define velEsq 180
+#define velDir 0
 #define velParar 90
 
 ///////////////////////
@@ -35,6 +35,8 @@ int valorEsq = 0;
 int valorDir = 0;
 int valorMesq = 0;
 int valorMdir = 0;
+
+#define d 1000
 
 void setup(){
 //definindo os tcrt como saídas.
@@ -85,15 +87,14 @@ void loop(){
   else if((valorEsq == 0 && valorMesq == 1 && valorF == 0 && valorMdir == 1 && valorDir == 1)||
           (valorEsq == 0 && valorMesq == 0 && valorF == 0 && valorMdir == 1 && valorDir == 1)||
           (valorEsq == 0 && valorMesq == 1 && valorF == 0 && valorMdir == 0 && valorDir == 1)){
-      Serial.println("NOV GRAUS DIREITA");
       direita();
     }
   
   else if((valorEsq == 1 && valorMesq == 1 && valorF == 0 && valorMdir == 1 && valorDir == 0) || 
          (valorEsq == 1 && valorMesq == 1 && valorF == 0 && valorMdir == 0 && valorDir == 0) ||
          (valorEsq == 1 && valorMesq == 0 && valorF == 0 && valorMdir == 1 && valorDir == 0)){
-      Serial.println("NOV GRAUS ESQUERDA");
       esquerda();
+            
     }
 
   else{Serial.println("FRENTE");
@@ -106,6 +107,10 @@ void media(int x){
 }
 
 ////////////////////
+void parar(){
+  servoEsquerda.write(velParar);
+  servoDireita.write(velParar);
+}
 
 void frente(){
   servoEsquerda.write(velEsq);
@@ -123,18 +128,21 @@ void direita(){
 }
 
 void novg_esquerda(){
-while(valorF == 0){
-esquerda();
-}
+    while (analogRead(pinosSensores[0]) < mediaSensores[0]){
+      frente();
+    }
+    while(analogRead(pinosSensores[2]) > mediaSensores[2]){
+    esquerda();
+    }
 }
 
 void novg_direita(){
-while(valorDir == 1){
-frente();
-}
-while(valorF == 0){
-direita();
-}
+    while (analogRead(pinosSensores[4]) < mediaSensores[4]){
+      frente();
+     }
+    while(analogRead(pinosSensores[2]) > mediaSensores[2] ){
+    direita();
+    }
 }
 
 void t(){}
