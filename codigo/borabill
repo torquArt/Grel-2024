@@ -9,8 +9,8 @@ amarelo, frente-*/
 Servo servoEsquerda;
 Servo servoDireita;
 
-#define velEsq 180
-#define velDir 0
+#define velEsq 100
+#define velDir 80
 #define velParar 90
 
 ///////////////////////
@@ -127,23 +127,23 @@ void direita(){
   servoDireita.write(velEsq);
 }
 
-void novg_esquerda(){
-    while (analogRead(pinosSensores[0]) < mediaSensores[0]){
-      frente();
-    }
-    while(analogRead(pinosSensores[2]) > mediaSensores[2]){
-    esquerda();
-    }
-}
+// void novg_esquerda(){
+//     while (analogRead(pinosSensores[0]) < mediaSensores[0]){
+//       frente();
+//     }
+//     while(analogRead(pinosSensores[2]) > mediaSensores[2]){
+//     esquerda();
+//     }
+// }
 
-void novg_direita(){
-    while (analogRead(pinosSensores[4]) < mediaSensores[4]){
-      frente();
-     }
-    while(analogRead(pinosSensores[2]) > mediaSensores[2] ){
-    direita();
-    }
-}
+// void novg_direita(){
+//     while (analogRead(pinosSensores[4]) < mediaSensores[4]){
+//       frente();
+//      }
+//     while(analogRead(pinosSensores[2]) > mediaSensores[2] ){
+//     direita();
+//     }
+// }
 
-void t(){}
-void encruzilhada(){}
+// void t(){}
+// void encruzilhada(){}
