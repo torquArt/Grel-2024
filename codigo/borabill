@@ -15,12 +15,6 @@ Servo servoDireita;
 
 ///////////////////////
 
-#define sensorF A1 
-#define sensorEsq A3 
-#define sensorDir A4 
-#define sensorMesq A5 
-#define sensorMdir A2 
-
 //Ordem:  esquerda, meioesquerda, frente, meiodireita, direita
 int sensoresMax[5] = {0, 0, 0, 0, 0}; // valores de cada sensor no branco
 
