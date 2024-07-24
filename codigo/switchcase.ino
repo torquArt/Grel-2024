@@ -59,14 +59,10 @@ void loop(){
     
   if (analogRead(pinosSensores[4]) > mediaSensores[4] ){valorSensores[4] = 0;} else {valorSensores[4] = 1;}
 
-   // Variável para armazenar os valores dos pinos
-  byte leitura = 0;
 
-  // Realiza a leitura dos pinos digitais
+  byte leitura = 0;
   for(int i= 0; i<5; i++){
     leitura |= valorSensores[i] << i;}
-
-  // Exibe o valor lido em binário
   Serial.print("Valor lido: ");
   Serial.println(leitura, BIN);
 
@@ -115,7 +111,4 @@ void direita(){
   servoEsquerda.write(velEsq);
   servoDireita.write(velEsq);
 }
-void novg_esquerda(){}
-void novg_direita(){}
-void t(){}
-void encruzilhada(){}
+
