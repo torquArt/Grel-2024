@@ -22,9 +22,9 @@ Servo servoDireita;
 #define sensorMdir A2 
 
 //Ordem:  esquerda, meioesquerda, frente, meiodireita, direita
-int sensoresMax[5] = {580, 340, 480, 420, 450}; // valores de cada sensor no branco
+int sensoresMax[5] = {0, 0, 0, 0, 0}; // valores de cada sensor no branco
 
-int sensoresMin[5] = {430, 100, 225, 100, 120}; //valores de cada sensor no preto
+int sensoresMin[5] = {0, 0, 0, 0, 0}; //valores de cada sensor no preto
 
 int mediaSensores[5] = {0, 0, 0, 0, 0};
 
@@ -87,12 +87,14 @@ void loop(){
   else if((valorEsq == 0 && valorMesq == 1 && valorF == 0 && valorMdir == 1 && valorDir == 1)||
           (valorEsq == 0 && valorMesq == 0 && valorF == 0 && valorMdir == 1 && valorDir == 1)||
           (valorEsq == 0 && valorMesq == 1 && valorF == 0 && valorMdir == 0 && valorDir == 1)){
+      Serial.println("NOV G DIR");
       direita();
     }
   
   else if((valorEsq == 1 && valorMesq == 1 && valorF == 0 && valorMdir == 1 && valorDir == 0) || 
          (valorEsq == 1 && valorMesq == 1 && valorF == 0 && valorMdir == 0 && valorDir == 0) ||
          (valorEsq == 1 && valorMesq == 0 && valorF == 0 && valorMdir == 1 && valorDir == 0)){
+      Serial.println("NOV G ESQ");
       esquerda();
             
     }
@@ -127,23 +129,24 @@ void direita(){
   servoDireita.write(velEsq);
 }
 
-// void novg_esquerda(){
-//     while (analogRead(pinosSensores[0]) < mediaSensores[0]){
-//       frente();
-//     }
-//     while(analogRead(pinosSensores[2]) > mediaSensores[2]){
-//     esquerda();
-//     }
-// }
+void calibrar(){
+Serial.println("Colocar sensores no preto.");
+delay (3000);
+for (int i = 0; i<5; i++){
+  sensoresMin[i] = analogRead(pinosSensores[i]);
+  Serial. print(i);
+  Serial.print(" = ");
+  Serial.println(sensoresMin[i]);
+}
 
-// void novg_direita(){
-//     while (analogRead(pinosSensores[4]) < mediaSensores[4]){
-//       frente();
-//      }
-//     while(analogRead(pinosSensores[2]) > mediaSensores[2] ){
-//     direita();
-//     }
-// }
+  delay(1000);
 
-// void t(){}
-// void encruzilhada(){}
+Serial.println("Colocar sensores no branco.");
+delay (8000);
+  for (int i = 0; i<5; i++){
+  sensoresMax[i] = analogRead(pinosSensores[i]);
+  Serial. print(i);
+  Serial.print(" = ");
+  Serial.println(sensoresMax[i]);
+}
+}
