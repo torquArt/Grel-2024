@@ -6,32 +6,38 @@ roxo curto, meio esquerda
 cinza curto, esquerda
 amarelo, frente-*/
 
-#define sensorF A1 // MAX: 506 MIN: 202
-#define sensorEsq A3 // MAX: 632 MIN: 433
-#define sensorDir A4 // MAX: 486 MIN: 120
-#define sensorMesq A5 // MAX: 370 MIN: 102
-#define sensorMdir A2 // MAX: 360 MIN: 120
+//Ordem:  esquerda, meioesquerda, frente, meiodireita, direita
+int sensoresMax[] = {0, 0, 0, 0, 0}; // valores de cada sensor no branco
 
-int pinosSensores[5] = {A1, A2, A3, A4, A5};
+int sensoresMin[] = {0, 0, 0, 0, 0}; //valores de cada sensor no preto
+
+int pinosSensores[] = {A3, A5, A1, A2, A4};
 
 void setup(){
 for(int i = 0; i<5; i++){
-pinMode (pinosSensores[i], INPUT);
+  pinMode (pinosSensores[i], INPUT);}
 
 Serial.begin(9600);
+  
+Serial.println("Colocar sensores no preto.");
+delay (3000);
+for (int i = 0; i<5; i++){
+  sensoresMin[i] = analogRead(pinosSensores[i]);
+  Serial. print(i);
+  Serial.print(" = ");
+  Serial.println(sensoresMin[i]);
+}
+  delay(1000);
+Serial.println("Colocar sensores no branco.");
+delay (8000);
+  for (int i = 0; i<5; i++){
+  sensoresMax[i] = analogRead(pinosSensores[i]);
+  Serial. print(i);
+  Serial.print(" = ");
+  Serial.println(sensoresMax[i]);
+}
+  
 }
 
 
-void loop(){
-Serial.print(analogRead(sensorEsq));
-Serial.print(" // ");
-Serial.print(analogRead(sensorMesq));
-Serial.print(" // ");
-Serial.print(analogRead(sensorF));
-Serial.print(" //");
-Serial.print(analogRead(sensorMdir));
-Serial.print(" // ");
-Serial.print(analogRead(sensorDir));
-
-Serial.println();
-}
+void loop(){}
