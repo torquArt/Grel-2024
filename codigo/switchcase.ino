@@ -60,14 +60,24 @@ void loop(){
   if (analogRead(pinosSensores[4]) > mediaSensores[4] ){valorSensores[4] = 0;} else {valorSensores[4] = 1;}
 
 
-  byte leitura = 0;
-  for(int i= 0; i<5; i++){
-    leitura |= valorSensores[i] << i;}
-  Serial.print("Valor lido: ");
-  Serial.println(leitura, BIN);
+byte leitura = 0;
+for (int i = 0; i < 5; i++) {
+  leitura |= valorSensores[i] << i;
+}
 
-  switch (leitura) {
-    case 0b01110:
+byte leituraInvertida = 0;
+for (int i = 0; i < 5; i++) {
+  if (leitura & (1 << i)) {
+    leituraInvertida |= (1 << (4 - i));
+  }
+}
+
+Serial.print("Valor lido: ");
+Serial.println(leituraInvertida, BIN);
+
+
+  switch (leituraInvertida) {
+    case 0b11111:
       Serial.println("FRENTE");
       frente();
       break;
@@ -81,9 +91,8 @@ void loop(){
     case 0b00110:
     case 0b00001:
         Serial.println("DIR");
-      direita();
+        direita();
       break;
-      Serial.print("ESQ");
     default:
       frente();
       break;
@@ -111,4 +120,3 @@ void direita(){
   servoEsquerda.write(velEsq);
   servoDireita.write(velEsq);
 }
-
