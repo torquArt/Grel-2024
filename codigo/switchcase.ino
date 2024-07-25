@@ -23,9 +23,9 @@ Servo servoDireita;
 #define sensorMdir A2 
 
 //Ordem:  esquerda, meioesquerda, frente, meiodireita, direita
-int sensoresMax[5] = {625, 365, 530, 320, 480}; // valores de cada sensor no branco
+int sensoresMax[5] = {594, 281, 494, 350, 502}; // valores de cada sensor no branco
 
-int sensoresMin[5] = {448, 116, 218, 74, 130}; //valores de cada sensor no preto
+int sensoresMin[5] = {428, 105, 215, 50, 115}; //valores de cada sensor no preto
 
 int mediaSensores[5] = {0, 0, 0, 0, 0};
 
