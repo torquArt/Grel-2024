@@ -127,10 +127,9 @@ void calibrar(){
 Serial.println("Colocar sensores no preto.");
 delay (3000);
 for (int i = 0; i<5; i++){
-  sensoresMin[i] = analogRead(pinosSensores[i]);
   Serial. print(i);
   Serial.print(" = ");
-  Serial.println(sensoresMin[i]);
+  Serial.println( analogRead(pinosSensores[i]));
 }
 
   delay(1000);
@@ -138,9 +137,8 @@ for (int i = 0; i<5; i++){
 Serial.println("Colocar sensores no branco.");
 delay (8000);
   for (int i = 0; i<5; i++){
-  sensoresMax[i] = analogRead(pinosSensores[i]);
   Serial. print(i);
   Serial.print(" = ");
-  Serial.println(sensoresMax[i]);
+  Serial.println( analogRead(pinosSensores[i]));
 }
 }
