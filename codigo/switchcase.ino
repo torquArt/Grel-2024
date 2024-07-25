@@ -16,12 +16,6 @@ Servo servoDireita;
 
 ///////////////////////
 
-#define sensorF A1 
-#define sensorEsq A3 
-#define sensorDir A4 
-#define sensorMesq A5 
-#define sensorMdir A2 
-
 //Ordem:  esquerda, meioesquerda, frente, meiodireita, direita
 int sensoresMax[5] = {594, 281, 494, 350, 502}; // valores de cada sensor no branco
 
@@ -39,8 +33,8 @@ void setup(){
     pinMode (pinosSensores[i], INPUT);
   }
 
-  servoEsquerda.attach(3);
-  servoDireita.attach(6);
+  servoEsquerda.attach(5);
+  servoDireita.attach(3);
 
   Serial.begin(9600);
 }
