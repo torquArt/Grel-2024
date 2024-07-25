@@ -55,16 +55,11 @@ void loop(){
 
 
 byte leitura = 0;
-for (int i = 0; i < 5; i++) {
-  leitura |= valorSensores[i] << i;
-}
-
-byte leituraInvertida = 0;
-for (int i = 0; i < 5; i++) {
-  if (leitura & (1 << i)) {
-    leituraInvertida |= (1 << (4 - i));
-  }
-}
+leitura |= valorSensores[0] << 4;
+leitura |= valorSensores[1] << 3;
+leitura |= valorSensores[2] << 2;
+leitura |= valorSensores[3] << 1;
+leitura |= valorSensores[4] ;
 
 Serial.print("Valor lido: ");
 Serial.println(leituraInvertida, BIN);
@@ -72,14 +67,10 @@ Serial.println(leituraInvertida, BIN);
 
   switch (leituraInvertida) {
     case 0b01000:
-    case 0b01100:
-    case 0b10000:
-      Serial.println("ESQ");
+        Serial.println("ESQ");
       esquerda();
       break;
     case 0b00010:
-    case 0b00110:
-    case 0b00001:
       Serial.println("DIR");
       direita();
       break;
