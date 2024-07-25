@@ -62,10 +62,10 @@ leitura |= valorSensores[3] << 1;
 leitura |= valorSensores[4] ;
 
 Serial.print("Valor lido: ");
-Serial.println(leituraInvertida, BIN);
+Serial.println(leitura, BIN);
 
 
-  switch (leituraInvertida) {
+  switch (leitura) {
     case 0b01000:
         Serial.println("ESQ");
       esquerda();
