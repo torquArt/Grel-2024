@@ -77,10 +77,6 @@ Serial.println(leituraInvertida, BIN);
 
 
   switch (leituraInvertida) {
-    case 0b11111:
-      Serial.println("FRENTE");
-      frente();
-      break;
     case 0b01000:
     case 0b01100:
     case 0b10000:
@@ -90,10 +86,23 @@ Serial.println(leituraInvertida, BIN);
     case 0b00010:
     case 0b00110:
     case 0b00001:
-        Serial.println("DIR");
-        direita();
+      Serial.println("DIR");
+      direita();
+      break;
+    case 0b11010:
+    case 0b11000:
+    case 0b10010:
+      Serial.println("NOV G ESQ");
+      esquerda();
+      break;
+    case 0b01011:
+    case 0b00011:
+    case 0b01001:
+      Serial.println("NOV G DIR");
+      direita();
       break;
     default:
+      Serial.println("FRENTE");
       frente();
       break;
   }
