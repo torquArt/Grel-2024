@@ -1,6 +1,6 @@
 // usar p/ calibrar os sensores
 
-/* cabo roxo longo, direita
+/* cabo laranja, direita
 cinza longo, meio direita
 roxo curto, meio esquerda
 cinza curto, esquerda
@@ -18,26 +18,16 @@ for(int i = 0; i<5; i++){
   pinMode (pinosSensores[i], INPUT);}
 
 Serial.begin(9600);
-  
-Serial.println("Colocar sensores no preto.");
-delay (3000);
+}
+
+
+void loop(){
 for (int i = 0; i<5; i++){
   sensoresMin[i] = analogRead(pinosSensores[i]);
   Serial. print(i);
   Serial.print(" = ");
-  Serial.println(sensoresMin[i]);
+  Serial.print(sensoresMin[i]);
+  Serial.print(" ");
 }
-  delay(1000);
-Serial.println("Colocar sensores no branco.");
-delay (8000);
-  for (int i = 0; i<5; i++){
-  sensoresMax[i] = analogRead(pinosSensores[i]);
-  Serial. print(i);
-  Serial.print(" = ");
-  Serial.println(sensoresMax[i]);
+Serial.println("");
 }
-  
-}
-
-
-void loop(){}
